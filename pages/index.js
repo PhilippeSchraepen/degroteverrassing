@@ -17,14 +17,14 @@ export default function Home() {
                     <div>
                         <h1>Vraag</h1>
                         <p>In welke stad gaat de verrassing door?</p>
-                        <input type={"text"} onChange={(e) => setAnswer(e.target.value)}/>
-
+                        <input type={"text"} value={answer} onChange={(e) => setAnswer(e.target.value)}/>
                         <button style={{marginTop: '1rem'}} onClick={async () => {
                             if (answer.toLowerCase() === 'lier') {
                                 await alert('Correct!')
                                 await router.push('/answer')
                             } else {
                                 alert('Fout!')
+                                setAnswer('');
                             }
                         }}>Verstuur antwoord</button>
                     </div>
