@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import happy from "/public/happy.png";
 
 const AnswerPage = () => {
     return (
@@ -25,8 +26,7 @@ const AnswerPage = () => {
                     gap: '2rem',
                     flexWrap: 'wrap'
                 }}>
-
-                    <Image src={"/happy.png"} width={150} height={200} alt=""/>
+                    <Image src={happy} placeholder="blur" width={150} height={200}  alt=""/>
                     <div>
                         <h1>Antwoord</h1>
                         <p>De exacte locatie ligt op</p>
