@@ -1,23 +1,42 @@
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
+import {useState} from "react";
+import {useRouter} from "next/router";
+
 
 export default function Home() {
-  return (
-    <div className="container">
-      <Head>
-        <title>Next.js Starter!</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    const [answer, setAnswer] = useState('')
+    const router = useRouter();
+    return (
+        <>
+            <Head>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css" />
+            </Head>
+            <div style={{
+                background: "#fefae0",
+                color: "black",
+                height: '100vh',
+                width: '100vw',
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
+            }}>
+                <div style={{background: "#ccd5ae", minHeight: '200px', padding: "2rem", borderRadius: '7px'}}>
+                    <h1>Vraag</h1>
+                    <p>In welke stad gaat de verrassing door?</p>
+                    <input type={"text"} onChange={(e) => setAnswer(e.target.value)}/>
 
-      <main>
-        <Header title="Welcome to my app!" />
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-      </main>
-
-      <Footer />
-    </div>
-  )
+                    <button style={{marginTop: '1rem'}} onClick={async () => {
+                        if (answer.toLowerCase() === 'lier') {
+                            await alert('Correct!')
+                            await router.push('/answer')
+                        } else {
+                            alert('Fout!')
+                        }
+                    }}>Verstuur antwoord</button>
+                </div>
+            </div>
+        </>
+    )
 }

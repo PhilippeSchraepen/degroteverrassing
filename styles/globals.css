@@ -10,15 +10,6 @@ body {
   box-sizing: border-box;
 }
 
-main {
-  padding: 5rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 code {
   background: #fafafa;
   border-radius: 5px;
@@ -32,4 +23,22 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+
+.shaper {
+  width: 100%;
+  height: 100vh;
+
+  background: gray url(https://image.ibb.co/ky3Y0S/teee.png) repeat 0 0;
+  margin: 0;
+  text-align: center;
+  padding-top: 120px;
+  box-sizing: border-box;
+  -webkit-animation: slide 30s linear infinite;
+}
+
+@-webkit-keyframes slide {
+  from { background-position: 0 0; }
+  to { background-position: -512px -512px; }
 }
