@@ -1,9 +1,7 @@
 import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
 import {useState} from "react";
 import {useRouter} from "next/router";
-
+import Image from "next/image";
 
 export default function Home() {
     const [answer, setAnswer] = useState('')
@@ -13,28 +11,23 @@ export default function Home() {
             <Head>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css" />
             </Head>
-            <div style={{
-                background: "#fefae0",
-                color: "black",
-                height: '100vh',
-                width: '100vw',
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center"
-            }}>
-                <div style={{background: "#ccd5ae", minHeight: '200px', padding: "2rem", borderRadius: '7px'}}>
-                    <h1>Vraag</h1>
-                    <p>In welke stad gaat de verrassing door?</p>
-                    <input type={"text"} onChange={(e) => setAnswer(e.target.value)}/>
+            <div className={"bg"}>
+                <div style={{background: "#ccd5ae", minHeight: '200px', padding: "2rem", borderRadius: '7px', display: 'flex', gap: '2rem', flexWrap: 'wrap'}}>
+                    <Image src={"/anne.png"} width={150} height={200}  alt=""/>
+                    <div>
+                        <h1>Vraag</h1>
+                        <p>In welke stad gaat de verrassing door?</p>
+                        <input type={"text"} onChange={(e) => setAnswer(e.target.value)}/>
 
-                    <button style={{marginTop: '1rem'}} onClick={async () => {
-                        if (answer.toLowerCase() === 'lier') {
-                            await alert('Correct!')
-                            await router.push('/answer')
-                        } else {
-                            alert('Fout!')
-                        }
-                    }}>Verstuur antwoord</button>
+                        <button style={{marginTop: '1rem'}} onClick={async () => {
+                            if (answer.toLowerCase() === 'lier') {
+                                await alert('Correct!')
+                                await router.push('/answer')
+                            } else {
+                                alert('Fout!')
+                            }
+                        }}>Verstuur antwoord</button>
+                    </div>
                 </div>
             </div>
         </>

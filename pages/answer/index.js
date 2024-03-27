@@ -1,10 +1,11 @@
 import Head from "next/head";
+import Image from "next/image";
 
 const AnswerPage = () => {
     return (
         <>
             <Head>
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css" />
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css"/>
             </Head>
             <div style={{
                 background: "#fefae0",
@@ -15,11 +16,22 @@ const AnswerPage = () => {
                 alignItems: "center",
                 justifyContent: "center"
             }}>
-                <div style={{background: "#ccd5ae", minHeight: '200px', padding: "2rem", borderRadius: '7px'}}>
+                <div style={{
+                    background: "#ccd5ae",
+                    minHeight: '200px',
+                    padding: "2rem",
+                    borderRadius: '7px',
+                    display: 'flex',
+                    gap: '2rem',
+                    flexWrap: 'wrap'
+                }}>
 
-                    <h1>Antwoord</h1>
-                    <p>De exacte locatie ligt op</p>
-                    <p>51.1501 NB</p>
+                    <Image src={"/happy.png"} width={150} height={200} alt=""/>
+                    <div>
+                        <h1>Antwoord</h1>
+                        <p>De exacte locatie ligt op</p>
+                        <p>51.1501 NB</p>
+                    </div>
                 </div>
             </div>
         </>
